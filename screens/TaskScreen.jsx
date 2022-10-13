@@ -37,6 +37,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   taskTitle: {
+    width: '80%',
     fontSize: 18,
     alignSelf: 'flex-start',
   },
@@ -114,7 +115,7 @@ export default function Task() {
           <Surface key={index} style={[styles.surface, { height }]}>
             <Card containerStyle={styles.teamCardContainerStyle}>
               <View style={{ flexDirection: 'row', justifyContent: 'space-between', width: '100%' }}>
-                <Text style={styles.taskTitle}>{item.name}</Text>
+                <Text style={styles.taskTitle} numberOfLines={1}>{item.name}</Text>
 
                 <TouchableOpacity style={styles.deleteAction} onPress={() => deleteTaskItem(index)}>
                   <Text>Delete</Text>
