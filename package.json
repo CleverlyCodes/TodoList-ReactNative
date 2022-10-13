@@ -24,6 +24,7 @@
     "testEnvironment": "jsdom"
   },
   "dependencies": {
+    "@testing-library/jest-dom": "^5.16.5",
     "expo": "~46.0.13",
     "expo-local-authentication": "~12.3.0",
     "expo-status-bar": "~1.4.0",
@@ -31,11 +32,13 @@
     "react": "18.0.0",
     "react-native": "0.69.6",
     "react-native-elements": "^3.4.2",
-    "react-native-paper": "^4.12.5"
+    "react-native-paper": "^4.12.5",
+    "react-native-safe-area-view": "^1.1.1"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
     "@babel/eslint-parser": "^7.19.1",
+    "@testing-library/react-native": "^9.1.0",
     "eslint": "^8.25.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-plugin-import": "^2.26.0",

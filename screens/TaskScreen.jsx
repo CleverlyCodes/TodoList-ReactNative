@@ -53,18 +53,8 @@ const styles = StyleSheet.create({
   }
 });
 
-const myTasks = [{
-  name: "test1",
-},
-{
-  name: "test2",
-},
-{
-  name: "test3",
-}];
-
 export default function Task() {
-    const [tasks, updateTasks] = useState(myTasks);
+    const [tasks, updateTasks] = useState([]);
     const [text, updateText] = useState("");
     const [isTaskListEmpty, updateIsTaskListEmpty] = useState(true);
 
@@ -117,7 +107,7 @@ export default function Task() {
               <View style={{ flexDirection: 'row', justifyContent: 'space-between', width: '100%' }}>
                 <Text style={styles.taskTitle} numberOfLines={1}>{item.name}</Text>
 
-                <TouchableOpacity style={styles.deleteAction} onPress={() => deleteTaskItem(index)}>
+                <TouchableOpacity testID={`deleteButton-${index}`} style={styles.deleteAction} onPress={() => deleteTaskItem(index)}>
                   <Text>Delete</Text>
                 </TouchableOpacity>
               </View>
@@ -130,7 +120,7 @@ export default function Task() {
   useEffect(() => {
     const isTaskListEmptied = tasks.length === 0 ? true : false;
     updateIsTaskListEmpty(isTaskListEmptied);
-  }, []);
+  }, [tasks]);
 
   return (
     <>
@@ -157,6 +147,7 @@ export default function Task() {
 
         <View style={styles.bottomContainer}>
           <TextInput
+            testID="taskNameInput"
             value={text}
             style={{ flex: 1, borderColor: '#2e2e2e', backgroundColor: '#fff', paddingHorizontal: 15, fontSize: 18 }}
             placeholder="Enter New Task Here"
@@ -175,6 +166,7 @@ export default function Task() {
           />
 
           <Button
+            testID="submitTaskButton"
             style={{ flex: 1, margin: 5 }}
             title="Add"
             onPress={addTaskItem}/>

@@ -5,7 +5,7 @@ import AuthScreen from "../screens/AuthScreen.jsx"
 jest.useFakeTimers();
 
 describe("<AuthScreen />", () => {
-  it('Renders action buttons to add list', async () => {
+  it('Renders authentication screen', async () => {
     const tree = renderer.create(<AuthScreen />).toJSON();
 
     await expect(tree).toMatchSnapshot();

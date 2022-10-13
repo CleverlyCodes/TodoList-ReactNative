@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<AuthScreen /> Renders action buttons to add list 1`] = `
+exports[`<AuthScreen /> Renders authentication screen 1`] = `
 <View
   style={
     Object {

@@ -1,0 +1,136 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TaskScreen /> Renders Task Screen 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#f2f2f2",
+      "flexDirection": "column",
+      "height": "100%",
+      "justifyContent": "space-between",
+    }
+  }
+>
+  <Text
+    style={
+      Object {
+        "alignSelf": "center",
+        "marginTop": 150,
+      }
+    }
+  >
+    There is currently no task (add some below)
+  </Text>
+  <View
+    style={
+      Object {
+        "alignItems": "stretch",
+        "backgroundColor": "#fff",
+        "flexDirection": "row",
+        "height": 50,
+        "margin": 15,
+      }
+    }
+  >
+    <TextInput
+      autoCapitalize="none"
+      autoCorrect={false}
+      inputStyle={
+        Object {
+          "borderRadius": 15,
+          "borderWidth": 2,
+          "color": "#2e2e2e",
+          "fontSize": 16,
+          "paddingLeft": 10,
+        }
+      }
+      onChangeText={[Function]}
+      placeholder="Enter New Task Here"
+      returnKeyType="done"
+      secureTextEntry={false}
+      style={
+        Object {
+          "backgroundColor": "#fff",
+          "borderColor": "#2e2e2e",
+          "flex": 1,
+          "fontSize": 18,
+          "paddingHorizontal": 15,
+        }
+      }
+      testID="taskNameInput"
+      value=""
+    />
+    <View
+      style={
+        Array [
+          Object {
+            "borderRadius": 3,
+            "overflow": "hidden",
+          },
+          Object {
+            "borderRadius": 3,
+          },
+          undefined,
+          false,
+        ]
+      }
+    >
+      <View
+        accessibilityRole="button"
+        accessibilityState={
+          Object {
+            "busy": false,
+            "disabled": false,
+          }
+        }
+        accessible={true}
+        collapsable={false}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "flex": 1,
+            "margin": 5,
+            "opacity": 1,
+          }
+        }
+        testID="submitTaskButton"
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#2089dc",
+              "borderColor": "#2089dc",
+              "borderRadius": 3,
+              "borderWidth": 0,
+              "flexDirection": "row",
+              "justifyContent": "center",
+              "padding": 8,
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "color": "white",
+                "fontSize": 18,
+                "paddingVertical": 1,
+                "textAlign": "center",
+              }
+            }
+          >
+            Add
+          </Text>
+        </View>
+      </View>
+    </View>
+  </View>
+</View>
+`;
