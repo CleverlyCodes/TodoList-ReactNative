@@ -10,15 +10,23 @@
   },
   "dependencies": {
     "expo": "~46.0.13",
+    "expo-local-authentication": "~12.3.0",
     "expo-status-bar": "~1.4.0",
     "react": "18.0.0",
     "react-native": "0.69.6",
     "react-native-elements": "^3.4.2",
-    "react-native-paper": "^4.12.5",
-    "expo-local-authentication": "~12.3.0"
+    "react-native-paper": "^4.12.5"
   },
   "devDependencies": {
-    "@babel/core": "^7.12.9"
+    "@babel/core": "^7.12.9",
+    "@babel/eslint-parser": "^7.19.1",
+    "eslint": "^8.25.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jsx-a11y": "^6.6.1",
+    "eslint-plugin-react": "^7.31.10",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-native": "^4.0.0"
   },
   "private": true
 }
