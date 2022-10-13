@@ -76,6 +76,9 @@ export default function Task() {
 
     const scrollY = new Animated.Value(0);
 
+    /**
+    * Creates a new task item
+    */
     const addTaskItem = () => {
       updateTasks( oldTasks => [...oldTasks, {
         name: text,
@@ -84,14 +87,22 @@ export default function Task() {
       updateText("");
     }
 
+    /**
+    * Deletes a specific task item based on index
+    * Improve this later by using an actual unique identifier
+    */
     const deleteTaskItem = (targetIndex) => {
       updateTasks(oldTasks => oldTasks.filter((item, index) => index !== targetIndex));
     }
 
-    const renderTeamItem = ({ item, index }) => {
+    /**
+    * Renders task item inside of the animated list view
+    * Apply dynamic animation adjustments when scrolling
+    */
+    const renderTaskItem = ({ item, index }) => {
       const height = ITEM_SIZE;
 
-      // Normal Animation
+      // Applying some custom animations when scrolling
       const inputRange = [
         TOTAL_ITEM_SIZE * (index - 10),
         TOTAL_ITEM_SIZE * (index - 6),
@@ -161,7 +172,7 @@ export default function Task() {
               )}
             data={tasks}
             keyExtractor={(item, index) => index}
-            renderItem={renderTeamItem}
+            renderItem={renderTaskItem}
           />
         }
 

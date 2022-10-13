@@ -16,12 +16,16 @@ export default function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   useEffect(() => {
+    // always checks if device supports biometrics
     (async () => {
       const compatible = await hasHardwareAsync();
       setIsBiometricSupported(compatible);
     })();
   });
 
+  /**
+  * Handles authentication using expo-local-authentication
+  */
   function onAuthenticate() {
     const auth = authenticateAsync({
       promptMessage: 'Authenticate first...',
