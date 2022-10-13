@@ -73,6 +73,7 @@ export default function Task() {
     const [tasks, updateTasks] = useState([]);
     const [text, updateText] = useState("");
     const [isTaskListEmpty, updateIsTaskListEmpty] = useState(true);
+    const [isTaskNameEmpty, updateIsTaskNameEmpty] = useState(true);
 
     const scrollY = new Animated.Value(0);
 
@@ -84,6 +85,7 @@ export default function Task() {
         name: text,
       }]);
 
+      updateIsTaskNameEmpty(true);
       updateText("");
     }
 
@@ -93,6 +95,13 @@ export default function Task() {
     */
     const deleteTaskItem = (targetIndex) => {
       updateTasks(oldTasks => oldTasks.filter((item, index) => index !== targetIndex));
+    }
+
+    const updateTaskName = (textValue) => {
+      updateText(textValue);
+
+      const isTextValueEmpty = textValue.length === 0 ? true : false;
+      updateIsTaskNameEmpty(isTextValueEmpty);
     }
 
     /**
@@ -182,7 +191,7 @@ export default function Task() {
             value={text}
             style={styles.taskNameInput}
             placeholder="Enter New Task Here"
-            onChangeText={(value) => updateText(value)}
+            onChangeText={(value) => updateTaskName(value)}
             returnKeyType="done"
             autoCapitalize="none"
             autoCorrect={false}
@@ -199,6 +208,7 @@ export default function Task() {
           <Button
             testID="submitTaskButton"
             style={styles.addTaskItemButton}
+            disabled={isTaskNameEmpty}
             title="Add"
             onPress={addTaskItem}/>
         </View>
