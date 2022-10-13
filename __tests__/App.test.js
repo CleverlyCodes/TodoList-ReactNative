@@ -1,11 +1,11 @@
-import React from "react";
-import renderer from "react-test-renderer";
-import App from "../App.jsx"
+import React from 'react';
+import { render } from '@testing-library/react-native';
+import App from '../App.jsx';
 
-describe("<App />", () => {
-    it('Renders the root of the application', async () => {
-      const tree = renderer.create(<App />).toJSON();
+describe('<App />', () => {
+  it('Renders the root of the application', () => {
+    const tree = render(<App />);
 
-      await expect(tree).toMatchSnapshot();
-    });
+    expect(tree).toMatchSnapshot();
+  });
 });

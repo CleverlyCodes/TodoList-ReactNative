@@ -48,5 +48,8 @@
     "eslint-plugin-react-native": "^4.0.0",
     "jest-expo": "^46.0.1"
   },
-  "private": true
+  "private": true,
+  "env": {
+    "jest": true
+  }
 }

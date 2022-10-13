@@ -1,7 +1,8 @@
 {
     "env": {
         "browser": true,
-        "react-native/react-native": true
+        "react-native/react-native": true,
+        "jest": true
     },
     "extends": [
         "airbnb"
@@ -18,10 +19,21 @@
         "react-native"
     ],
     "rules": {
+        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
         "react-native/no-unused-styles": 2,
         "react-native/split-platform-components": 2,
         "react-native/no-inline-styles": 2,
         "react-native/no-color-literals": 2,
-        "react-native/no-raw-text": 2
+        "react-native/no-raw-text": 2,
+        "import/extensions": [
+            0,
+            "ignorePackages",
+            {
+              "js": "never",
+              "jsx": "never",
+              "ts": "never",
+              "tsx": "never"
+            }
+        ]
     }
 }

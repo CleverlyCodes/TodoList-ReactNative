@@ -1,13 +1,13 @@
-import React from "react";
-import renderer from "react-test-renderer";
-import AuthScreen from "../screens/AuthScreen.jsx"
+import React from 'react';
+import { render } from '@testing-library/react-native';
+import AuthScreen from '../screens/AuthScreen';
 
 jest.useFakeTimers();
 
-describe("<AuthScreen />", () => {
-  it('Renders authentication screen', async () => {
-    const tree = renderer.create(<AuthScreen />).toJSON();
+describe('<AuthScreen />', () => {
+  it('Renders authentication screen', () => {
+    const tree = render(<AuthScreen />).toJSON();
 
-    await expect(tree).toMatchSnapshot();
+    expect(tree).toMatchSnapshot();
   });
 });

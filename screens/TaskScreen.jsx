@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   Animated,
   Text,
@@ -118,6 +118,7 @@ export default function Task() {
   }
 
   useEffect(() => {
+    // Rechecks state of task list if empty and updates state
     const isTaskListEmptied = tasks.length === 0 ? true : false;
     updateIsTaskListEmpty(isTaskListEmptied);
   }, [tasks]);
@@ -126,9 +127,12 @@ export default function Task() {
     <>
       <View style={{ backgroundColor: '#f2f2f2', height: '100%', flexDirection: 'column', justifyContent: 'space-between' }}>
         {
+          // Checks if task list is empty and shows corresponding UI elements
           isTaskListEmpty ? 
 
-          <Text style={{ alignSelf: 'center', marginTop: 150 }}>There is currently no task (add some below)</Text>
+          <Text style={{ alignSelf: 'center', marginTop: 150 }}>
+            There is currently no task (add some below)
+          </Text>
 
           : 
           
