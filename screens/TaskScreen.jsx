@@ -100,7 +100,7 @@ export default function Task() {
     const updateTaskName = (textValue) => {
       updateText(textValue);
 
-      const isTextValueEmpty = textValue.length === 0 ? true : false;
+      const isTextValueEmpty = !textValue.trim() ? true : false;
       updateIsTaskNameEmpty(isTextValueEmpty);
     }
 
