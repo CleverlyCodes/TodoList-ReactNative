@@ -34,8 +34,10 @@ export default function App() {
   }
 
   return (
-    { 
-      isAuthenticated ? <Task /> : <Auth onAuthenticate={onAuthenticate} /> 
-    }
+    <>
+      { 
+        isAuthenticated ? <Task /> : <Auth onAuthenticate={onAuthenticate} /> 
+      }
+    </>
   );
 }
