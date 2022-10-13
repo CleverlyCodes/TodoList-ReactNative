@@ -68,7 +68,7 @@ export default function Task() {
     const [text, updateText] = useState("");
     const [isTaskListEmpty, updateIsTaskListEmpty] = useState(true);
 
-    const scrollY = useRef(new Animated.Value(0)).current;
+    const scrollY = new Animated.Value(0);
 
     const addTaskItem = () => {
       updateTasks( oldTasks => [...oldTasks, {
@@ -85,25 +85,25 @@ export default function Task() {
     const renderTeamItem = ({ item, index }) => {
       const height = ITEM_SIZE;
 
-    // Normal Animation
-    const inputRange = [
-      TOTAL_ITEM_SIZE * (index - 10),
-      TOTAL_ITEM_SIZE * (index - 6),
-      TOTAL_ITEM_SIZE * (index - 5),
-      TOTAL_ITEM_SIZE * (index),
-      TOTAL_ITEM_SIZE * (index + 3),
-      TOTAL_ITEM_SIZE * (index + 7),
-    ];
+      // Normal Animation
+      const inputRange = [
+        TOTAL_ITEM_SIZE * (index - 10),
+        TOTAL_ITEM_SIZE * (index - 6),
+        TOTAL_ITEM_SIZE * (index - 5),
+        TOTAL_ITEM_SIZE * (index),
+        TOTAL_ITEM_SIZE * (index + 3),
+        TOTAL_ITEM_SIZE * (index + 7),
+      ];
 
-    const scale = scrollY.interpolate({
-      inputRange,
-      outputRange: [0.75, 0.90, 1, 1, 0.5, 0.5],
-    });
+      const scale = scrollY.interpolate({
+        inputRange,
+        outputRange: [0.75, 0.90, 1, 1, 0.5, 0.5],
+      });
 
-    const opacity = scrollY.interpolate({
-      inputRange,
-      outputRange: [0.25, 0.75, 1, 1, 0.5, 0.5],
-    });
+      const opacity = scrollY.interpolate({
+        inputRange,
+        outputRange: [0.25, 0.75, 1, 1, 0.5, 0.5],
+      });
 
       return (
         <Animated.View
@@ -130,7 +130,7 @@ export default function Task() {
   useEffect(() => {
     const isTaskListEmptied = tasks.length === 0 ? true : false;
     updateIsTaskListEmpty(isTaskListEmptied);
-  }, [tasks]);
+  }, []);
 
   return (
     <>

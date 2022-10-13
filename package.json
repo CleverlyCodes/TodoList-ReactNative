@@ -19,7 +19,9 @@
     ],
     "transform": {
       "^.+\\.[jt]sx?$": "babel-jest"
-    }
+    },
+    "timers": "fake",
+    "testEnvironment": "jsdom"
   },
   "dependencies": {
     "expo": "~46.0.13",

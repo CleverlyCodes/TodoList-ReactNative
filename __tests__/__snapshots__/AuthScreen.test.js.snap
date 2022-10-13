@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<App /> Renders the root of the application 1`] = `
+exports[`<AuthScreen /> Renders action buttons to add list 1`] = `
 <View
   style={
     Object {
@@ -18,7 +18,7 @@ exports[`<App /> Renders the root of the application 1`] = `
     accessibilityRole="button"
     accessible={true}
     collapsable={false}
-    focusable={true}
+    focusable={false}
     onClick={[Function]}
     onResponderGrant={[Function]}
     onResponderMove={[Function]}
