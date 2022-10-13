@@ -3,7 +3,11 @@ import {
   Alert,
 } from 'react-native';
 
-import { setIsBiometricSupported, hasHardwareAsync, authenticateAsync } from 'expo-local-authentication';
+import { 
+  setIsBiometricSupported,
+  hasHardwareAsync,
+  authenticateAsync
+} from 'expo-local-authentication';
 
 import Auth from './screens/AuthScreen';
 import Task from './screens/TaskScreen';

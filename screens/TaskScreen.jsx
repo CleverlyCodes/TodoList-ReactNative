@@ -19,10 +19,10 @@ const TOTAL_ITEM_SIZE = ITEM_SIZE + (SPACING * 2);
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#f5f5f5',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: '#f2f2f2',
+    height: '100%',
+    flexDirection: 'column',
+    justifyContent: 'space-between',
   },
   surface: {
     backgroundColor: 'transparent',
@@ -30,6 +30,11 @@ const styles = StyleSheet.create({
     verticalPadding: SPACING,
     flexDirection: 'row',
     padding: SPACING,
+  },
+  listContainerStyle: {
+    paddingTop: 0,
+    paddingBottom: 100,
+    paddingTop: 40.
   },
   teamCardContainerStyle: {
     borderRadius: 15,
@@ -50,6 +55,17 @@ const styles = StyleSheet.create({
     height: 50,
     margin: 15,
     backgroundColor: '#fff',
+  },
+  taskNameInput: {
+    flex: 1,
+    borderColor: '#2e2e2e',
+    backgroundColor: '#fff',
+    paddingHorizontal: 15,
+    fontSize: 18,
+  },
+  addTaskItemButton: {
+    flex: 1,
+    margin: 5
   }
 });
 
@@ -125,7 +141,7 @@ export default function Task() {
 
   return (
     <>
-      <View style={{ backgroundColor: '#f2f2f2', height: '100%', flexDirection: 'column', justifyContent: 'space-between' }}>
+      <View style={styles.container}>
         {
           // Checks if task list is empty and shows corresponding UI elements
           isTaskListEmpty ? 
@@ -137,7 +153,7 @@ export default function Task() {
           : 
           
           <Animated.FlatList
-            contentContainerStyle={{ paddingTop: 0, paddingBottom: 100, paddingTop: 40 }}
+            contentContainerStyle={styles.listContainerStyle}
             onScroll={
               Animated.event(
                 [{ nativeEvent: { contentOffset: { y: scrollY } } }],
@@ -153,7 +169,7 @@ export default function Task() {
           <TextInput
             testID="taskNameInput"
             value={text}
-            style={{ flex: 1, borderColor: '#2e2e2e', backgroundColor: '#fff', paddingHorizontal: 15, fontSize: 18 }}
+            style={styles.taskNameInput}
             placeholder="Enter New Task Here"
             onChangeText={(value) => updateText(value)}
             returnKeyType="done"
@@ -171,7 +187,7 @@ export default function Task() {
 
           <Button
             testID="submitTaskButton"
-            style={{ flex: 1, margin: 5 }}
+            style={styles.addTaskItemButton}
             title="Add"
             onPress={addTaskItem}/>
         </View>
