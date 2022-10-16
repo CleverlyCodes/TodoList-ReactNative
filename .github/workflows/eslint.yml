@@ -9,9 +9,4 @@ jobs:
       with:
         node-version: '16.x'
     - run: npx install-peerdeps --dev eslint-config-airbnb
-    - run: npx install-peerdeps --dev eslint-plugin-import
-    - run: npx install-peerdeps --dev eslint-plugin-jsx-a11y
-    - run: npx install-peerdeps --dev eslint-plugin-react
-    - run: npx install-peerdeps --dev eslint-plugin-react-hooks
-    - run: npx install-peerdeps --dev eslint-plugin-react-native
     - run: npx eslint .
