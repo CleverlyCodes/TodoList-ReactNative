@@ -8,5 +8,10 @@ jobs:
     - uses: actions/setup-node@v2
       with:
         node-version: '16.x'
-    - run: npx install-peerdeps --dev eslint-config-airbnb eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-react eslint-plugin-react-hooks eslint-plugin-react-native
+    - run: npx install --dev eslint-config-airbnb
+    - run: npx install --dev eslint-plugin-import
+    - run: npx install --dev eslint-plugin-jsx-a11y
+    - run: npx install --dev eslint-plugin-react
+    - run: npx install --dev eslint-plugin-react-hooks
+    - run: npx install --dev eslint-plugin-react-native
     - run: npx eslint .
