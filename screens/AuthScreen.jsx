@@ -17,7 +17,9 @@ const styles = StyleSheet.create({
 export default function Auth({onAuthenticate}) {
   return (
     <View style={styles.container}>
-      <Text>Please authenticate first</Text>
+      <Text>
+        Please authenticate first
+      </Text>
 
       <Button
         title="Login"

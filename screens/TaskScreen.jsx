@@ -16,6 +16,7 @@ import { Surface } from 'react-native-paper';
 const SPACING = 2;
 const ITEM_SIZE = 75;
 const TOTAL_ITEM_SIZE = ITEM_SIZE + (SPACING * 2);
+const height = ITEM_SIZE;
 
 const styles = StyleSheet.create({
   container: {
@@ -109,9 +110,8 @@ export default function Task() {
     * Apply dynamic animation adjustments when scrolling
     */
     const renderTaskItem = ({ item, index }) => {
-      const height = ITEM_SIZE;
-
-      // Applying some custom animations when scrolling
+      // Applying some custom animations when scrolling 
+      // relative to both scroll and item position
       const inputRange = [
         TOTAL_ITEM_SIZE * (index - 10),
         TOTAL_ITEM_SIZE * (index - 6),
@@ -121,11 +121,13 @@ export default function Task() {
         TOTAL_ITEM_SIZE * (index + 7),
       ];
 
+      // scale changes based on inputRange computation
       const scale = scrollY.interpolate({
         inputRange,
         outputRange: [0.75, 0.90, 1, 1, 0.5, 0.5],
       });
 
+      // opacity changes based on inputRnage computation
       const opacity = scrollY.interpolate({
         inputRange,
         outputRange: [0.25, 0.75, 1, 1, 0.5, 0.5],
@@ -141,9 +143,18 @@ export default function Task() {
           <Surface key={index} style={[styles.surface, { height }]}>
             <Card containerStyle={styles.teamCardContainerStyle}>
               <View style={{ flexDirection: 'row', justifyContent: 'space-between', width: '100%' }}>
-                <Text style={styles.taskTitle} numberOfLines={1}>{item.name}</Text>
+                <Text
+                  style={styles.taskTitle}
+                  numberOfLines={1}
+                >
+                  {item.name}
+                </Text>
 
-                <TouchableOpacity testID={`deleteButton-${index}`} style={styles.deleteAction} onPress={() => deleteTaskItem(index)}>
+                <TouchableOpacity
+                  testID={`deleteButton-${index}`}
+                  style={styles.deleteAction}
+                  onPress={() => deleteTaskItem(index)}
+                >
                   <Text>Delete</Text>
                 </TouchableOpacity>
               </View>

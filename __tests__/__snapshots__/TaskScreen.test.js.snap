@@ -80,7 +80,7 @@ exports[`<TaskScreen /> Renders Task Screen 1`] = `
         accessibilityState={
           Object {
             "busy": false,
-            "disabled": false,
+            "disabled": true,
           }
         }
         accessible={true}
@@ -106,7 +106,7 @@ exports[`<TaskScreen /> Renders Task Screen 1`] = `
           style={
             Object {
               "alignItems": "center",
-              "backgroundColor": "#2089dc",
+              "backgroundColor": "hsl(208, 8%, 90%)",
               "borderColor": "#2089dc",
               "borderRadius": 3,
               "borderWidth": 0,
@@ -119,7 +119,7 @@ exports[`<TaskScreen /> Renders Task Screen 1`] = `
           <Text
             style={
               Object {
-                "color": "white",
+                "color": "hsl(208, 8%, 63%)",
                 "fontSize": 18,
                 "paddingVertical": 1,
                 "textAlign": "center",
