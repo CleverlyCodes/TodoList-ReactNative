@@ -10,6 +10,7 @@ import {
 import {
   Button,
   Card,
+  Icon,
 } from 'react-native-elements';
 import { Surface } from 'react-native-paper';
 
@@ -43,11 +44,12 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   taskTitle: {
-    width: '80%',
+    width: '60%',
     fontSize: 18,
     alignSelf: 'flex-start',
+    marginTop: 10,
   },
-  deleteAction: {
+  taskAction: {
     alignSelf: 'flex-end',
   },
   bottomContainer: {
@@ -82,9 +84,11 @@ export default function Task() {
     * Creates a new task item
     */
     const addTaskItem = () => {
-      updateTasks( oldTasks => [...oldTasks, {
+      updateTasks( oldTasks => [{
         name: text,
-      }]);
+        isChecked: false,
+      },
+      ...oldTasks]);
 
       updateIsTaskNameEmpty(true);
       updateText("");
@@ -143,6 +147,21 @@ export default function Task() {
           <Surface key={index} style={[styles.surface, { height }]}>
             <Card containerStyle={styles.teamCardContainerStyle}>
               <View style={{ flexDirection: 'row', justifyContent: 'space-between', width: '100%' }}>
+                <TouchableOpacity
+                  testID={`completeButton-${index}`}
+                  style={styles.taskAction}
+                  onPress={() => {alert("done")}}
+                >
+                  <Icon
+                    style={{flex: 1}}
+                    reverse
+                    name='check'
+                    type='font-awesome'
+                    color={ item.isChecked ? '#50C878' : '#C1E1C1' }
+                    size='13'
+                  />
+                </TouchableOpacity>
+
                 <Text
                   style={styles.taskTitle}
                   numberOfLines={1}
@@ -155,7 +174,13 @@ export default function Task() {
                   style={styles.deleteAction}
                   onPress={() => deleteTaskItem(index)}
                 >
-                  <Text>Delete</Text>
+                  <Icon
+                    reverse
+                    name='trash'
+                    type='font-awesome'
+                    color='#f50'
+                    size='13'
+                  />
                 </TouchableOpacity>
               </View>
             </Card>
@@ -219,6 +244,7 @@ export default function Task() {
           <Button
             testID="submitTaskButton"
             style={styles.addTaskItemButton}
+            buttonStyle={{backgroundColor: '#50C878'}}
             disabled={isTaskNameEmpty}
             title="Add"
             onPress={addTaskItem}/>
