@@ -1,0 +1,17 @@
+name: jest
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 14
+      - uses: expo/expo-github-action@v7
+        with:
+          expo-version: latest
+      - run: npm install --legacy-peer-deps
+      - run: npm test
