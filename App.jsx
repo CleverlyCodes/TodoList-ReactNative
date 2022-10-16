@@ -18,8 +18,14 @@ export default function App() {
   useEffect(() => {
     // always checks if device supports biometrics
     (async () => {
-      const compatible = await hasHardwareAsync();
-      setIsBiometricSupported(compatible);
+      try {
+        const compatible = await hasHardwareAsync();
+        await setIsBiometricSupported(compatible);
+      }
+      catch(error) {
+        // fail silently
+        console.log(`Authentication: ${error}`);
+      }
     })();
   });
 
@@ -36,8 +42,10 @@ export default function App() {
       setIsAuthenticated(result.success);
 
       if (result.error) {
-        Alert.alert('Login Failed!');
+        Alert.alert(`Login failed: ${result.error.promptMessage}`);
       }
+    }).catch((error) => {
+      console.error(`Authentication Failed: ${error}`);
     });
   }
 
