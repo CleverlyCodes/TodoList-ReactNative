@@ -58,7 +58,7 @@ To start running the project locally
     - [ ] Add local storage capabilities
 - [ ] User Experience
     - [ ] Swiping action to mark as done
-- [ ] Development/Tooling
+- [x] Development/Tooling
     - [x] Add tests with Jest
     - [x] Add linter with eslint
     - [x] Add tests to CI
