@@ -22,6 +22,7 @@ This project was just started so there's still a long way to go but I plan to im
 * Skipping the use of Redux as there will be no complicated state tracking for now
 * Different screens were made for authentication and the  main task list to switch between the two based on authentication state
 * Use Animated flatlist to make the experience more fun for users
+* Added new items to the top of the list and resorted done items to the bottom of the list (It is simpler but still makes sense for the user - me)
 * Implemented basic unit tests that focus on the list capabilities (adding, deleting, etc...)
 
 ### Installation
@@ -39,6 +40,22 @@ To start running the project locally
 3. Run the application using Expo
    ```sh
    npm start
+
+### Testing
+
+To test the project locally
+
+1. Run eslint
+   ```sh
+   eslint .
+   ```
+2. Run jest tests
+   ```sh
+   npm test
+   ```
+3. If UI was intentionally updated run:
+   ```sh
+   npm test -- -u
    ```
 
 <!-- ROADMAP -->
