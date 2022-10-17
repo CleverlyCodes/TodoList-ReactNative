@@ -47,8 +47,8 @@ To start running the project locally
 - [x] Create Grocery List
     - [x] Adding items
     - [x] Deleting items
+    - [x] Update items to done
     - [ ] Editing items
-    - [ ] Done list instead of just deleting
 - [x] Local Authentication
     - [x] Implement basic authentication
     - [ ] Add maximum tries
@@ -58,3 +58,8 @@ To start running the project locally
     - [ ] Add local storage capabilities
 - [ ] User Experience
     - [ ] Swiping action to mark as done
+- [ ] Development/Tooling
+    - [x] Add tests with Jest
+    - [x] Add linter with eslint
+    - [x] Add tests to CI
+    - [x] Add linter to CI
