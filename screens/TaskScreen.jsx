@@ -13,6 +13,7 @@ import {
   Icon,
 } from 'react-native-elements';
 import { Surface } from 'react-native-paper';
+import { theme } from '../constants/Theme';
 
 const SPACING = 2;
 const ITEM_SIZE = 75;
@@ -21,7 +22,7 @@ const height = ITEM_SIZE;
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#f2f2f2',
+    backgroundColor: theme.offWhite,
     height: '100%',
     flexDirection: 'column',
     justifyContent: 'space-between',
@@ -66,12 +67,12 @@ const styles = StyleSheet.create({
     alignItems: 'stretch',
     height: 50,
     margin: 15,
-    backgroundColor: '#fff',
+    backgroundColor: theme.white,
   },
   taskNameInput: {
     flex: 1,
-    borderColor: '#2e2e2e',
-    backgroundColor: '#fff',
+    borderColor: theme.dark,
+    backgroundColor: theme.white,
     paddingHorizontal: 15,
     fontSize: 18,
   },
@@ -79,7 +80,7 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     borderWidth: 2,
     paddingLeft: 10,
-    color: "#2e2e2e",
+    color: theme.dark,
     fontSize: 16,
   },
   addTaskItemButton: {
@@ -87,7 +88,7 @@ const styles = StyleSheet.create({
     margin: 5,
   },
   successButtonStyle: {
-    backgroundColor: '#50C878',
+    backgroundColor: theme.success,
   },
 });
 
@@ -201,7 +202,7 @@ export default function Task() {
                     reverse
                     name='check'
                     type='font-awesome'
-                    color={ item.isChecked ? '#50C878' : '#C1E1C1' }
+                    color={ item.isChecked ? theme.success : theme.confirm }
                     size='13'
                   />
                 </TouchableOpacity>
@@ -222,7 +223,7 @@ export default function Task() {
                     reverse
                     name='trash'
                     type='font-awesome'
-                    color='#f50'
+                    color={theme.error}
                     size='13'
                   />
                 </TouchableOpacity>

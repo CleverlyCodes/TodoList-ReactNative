@@ -4,11 +4,12 @@ import {
   StyleSheet,
   Button,
 } from 'react-native';
+import { theme } from '../constants/Theme';
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: theme.white,
     alignItems: 'center',
     justifyContent: 'center',
   },
