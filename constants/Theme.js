@@ -1,3 +1,4 @@
+/* eslint-disable import/prefer-default-export */
 const theme = {
   confirm: '#C1E1C1',
   success: '#50C878',
@@ -7,4 +8,6 @@ const theme = {
   dark: '#2E2E2E',
 };
 
-export default theme;
+export {
+  theme,
+};
