@@ -26,6 +26,10 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'space-between',
   },
+  emptyMessage: {
+    alignSelf: 'center',
+    marginTop: 150,
+  },
   surface: {
     backgroundColor: 'transparent',
     justifyContent: 'center',
@@ -38,10 +42,15 @@ const styles = StyleSheet.create({
     paddingBottom: 100,
     paddingTop: 40.
   },
-  teamCardContainerStyle: {
+  teamCardStyle: {
     borderRadius: 15,
     width: '95%',
     justifyContent: 'center',
+  },
+  teamCardContainerStyle: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    width: '100%',
   },
   taskTitle: {
     width: '60%',
@@ -66,10 +75,20 @@ const styles = StyleSheet.create({
     paddingHorizontal: 15,
     fontSize: 18,
   },
+  inputTaskStyle: {
+    borderRadius: 15,
+    borderWidth: 2,
+    paddingLeft: 10,
+    color: "#2e2e2e",
+    fontSize: 16,
+  },
   addTaskItemButton: {
     flex: 1,
-    margin: 5
-  }
+    margin: 5,
+  },
+  successButtonStyle: {
+    backgroundColor: '#50C878',
+  },
 });
 
 export default function Task() {
@@ -171,15 +190,14 @@ export default function Task() {
           }}
         >
           <Surface key={index} style={[styles.surface, { height }]}>
-            <Card containerStyle={styles.teamCardContainerStyle}>
-              <View style={{ flexDirection: 'row', justifyContent: 'space-between', width: '100%' }}>
+            <Card containerStyle={styles.teamCardStyle}>
+              <View style={styles.teamCardContainerStyle}>
                 <TouchableOpacity
                   testID={`completeButton-${index}`}
                   style={styles.taskAction}
                   onPress={() => updateTaskAsDone(index)}
                 >
                   <Icon
-                    style={{flex: 1}}
                     reverse
                     name='check'
                     type='font-awesome'
@@ -228,7 +246,7 @@ export default function Task() {
           // Checks if task list is empty and shows corresponding UI elements
           isTaskListEmpty ? 
 
-          <Text style={{ alignSelf: 'center', marginTop: 150 }}>
+          <Text style={styles.emptyMessage}>
             There is currently no task (add some below)
           </Text>
 
@@ -258,19 +276,13 @@ export default function Task() {
             autoCapitalize="none"
             autoCorrect={false}
             secureTextEntry={false}
-            inputStyle={{
-              borderRadius: 15,
-              borderWidth: 2,
-              paddingLeft: 10,
-              color: "#2e2e2e",
-              fontSize: 16,
-            }}
+            inputStyle={styles.inputTaskStyle}
           />
 
           <Button
             testID="submitTaskButton"
             style={styles.addTaskItemButton}
-            buttonStyle={{backgroundColor: '#50C878'}}
+            buttonStyle={styles.successButtonStyle}
             disabled={isTaskNameEmpty}
             title="Add"
             onPress={addTaskItem}/>
