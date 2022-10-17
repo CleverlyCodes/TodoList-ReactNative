@@ -42,7 +42,7 @@ export default function App() {
       setIsAuthenticated(result.success);
 
       if (result.error) {
-        Alert.alert(`Login failed: ${result.error.promptMessage}`);
+        Alert.alert(`Login failed: ${result.error}`);
       }
     }).catch((error) => {
       console.error(`Authentication Failed: ${error}`);

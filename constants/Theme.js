@@ -7,6 +7,4 @@ const theme = {
   dark: '#2E2E2E',
 };
 
-export {
-  theme,
-};
+export default theme;
