@@ -110,6 +110,32 @@ export default function Task() {
     }
 
     /**
+    * Updates items as done
+    */
+    const updateTaskAsDone = (targetIndex) => {
+      const newTasks = [...tasks];
+      const newTask = newTasks[targetIndex];
+
+      // toggle done state for item
+      newTask.isChecked = !newTask.isChecked;
+
+      updateTasks(sortByDone(newTasks));
+    }
+
+    /**
+    * Moves tasks to the bottom of the list as they are marked as done
+    */
+    const sortByDone = (currentTasks) => {
+      currentTasks.sort((firstItem, secondItem) => {
+        // If firstItem is done and second item is not done
+        if (!firstItem.isChecked && secondItem.isChecked) return -1;
+        // If secondUser balance greater than firstUser balance move up
+        if (firstItem.isChecked && !secondItem.isChecked) return 1;
+      })
+      return currentTasks;
+    }
+
+    /**
     * Renders task item inside of the animated list view
     * Apply dynamic animation adjustments when scrolling
     */
@@ -150,7 +176,7 @@ export default function Task() {
                 <TouchableOpacity
                   testID={`completeButton-${index}`}
                   style={styles.taskAction}
-                  onPress={() => {alert("done")}}
+                  onPress={() => updateTaskAsDone(index)}
                 >
                   <Icon
                     style={{flex: 1}}
